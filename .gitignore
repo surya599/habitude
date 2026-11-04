@@ -7,6 +7,8 @@ venv/
 env/
 *.sqlite3
 .env
+staticfiles/
+backend/staticfiles/
 
 # PostgreSQL local data cluster
 .postgres_data/

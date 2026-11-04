@@ -1,5 +1,9 @@
 const TOKEN_STORAGE_KEY = 'habitude_auth_token';
 
+// If VITE_API_URL is provided in environment variables (e.g. on Vercel), use it.
+// Otherwise, fall back to '/api' which is proxied by Vite during local development.
+const API_BASE_URL = (import.meta.env.VITE_API_URL || '/api').replace(/\/+$/, '');
+
 export function getAuthToken(): string | null {
   return localStorage.getItem(TOKEN_STORAGE_KEY);
 }
@@ -26,7 +30,10 @@ export async function apiRequest<T>(
     headers['Authorization'] = `Token ${token}`;
   }
 
-  const response = await fetch(`/api${endpoint}`, {
+  const cleanEndpoint = endpoint.startsWith('/') ? endpoint : `/${endpoint}`;
+  const url = `${API_BASE_URL}${cleanEndpoint}`;
+
+  const response = await fetch(url, {
     ...options,
     headers,
   });
