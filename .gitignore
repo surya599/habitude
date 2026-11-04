@@ -1,0 +1,19 @@
+# Python & Django
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+*.sqlite3
+.env
+
+# PostgreSQL local data cluster
+.postgres_data/
+
+# Node & Frontend
+node_modules/
+frontend/dist/
+frontend/.vite/
+*.log
+.DS_Store

@@ -1,0 +1,142 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Light Mode — Apple Health / Apple Fitness / macOS Light Inspired */
+  --bg-primary: #FAF9F6;
+  --bg-card: #FFFFFF;
+  --bg-secondary: #F2F2F6;
+  --bg-elevated: #FFFFFF;
+
+  --text-primary: #1D1D1F;
+  --text-secondary: #6E6E73;
+  --text-tertiary: #86868B;
+
+  --accent-primary: #0066CC;
+  --accent-hover: #0055B3;
+  --accent-soft: rgba(0, 102, 204, 0.09);
+
+  --status-success: #248A3D;
+  --status-success-soft: rgba(36, 138, 61, 0.10);
+
+  --status-warning: #C96A00;
+  --status-warning-soft: rgba(201, 106, 0, 0.11);
+
+  --status-danger: #D70015;
+  --status-danger-soft: rgba(215, 0, 21, 0.09);
+
+  --border-subtle: #E6E6EB;
+  --border-strong: #D2D2D7;
+
+  --shadow-card: 0 2px 14px rgba(0, 0, 0, 0.035), 0 1px 2px rgba(0, 0, 0, 0.02);
+  --shadow-elevated: 0 14px 36px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.03);
+
+  /* Chart Semantic Tokens */
+  --chart-grid: #ECECF0;
+  --chart-axis: #86868B;
+  --chart-tooltip-bg: #FFFFFF;
+  --chart-tooltip-border: #E5E5EA;
+  --chart-ring-track: #EFEFF4;
+
+  /* Heatmap levels */
+  --heatmap-0: #ECECEF;
+  --heatmap-1: #B8D8FA;
+  --heatmap-2: #6FB2F7;
+  --heatmap-3: #2B86E8;
+  --heatmap-4: #005BB5;
+}
+
+.dark {
+  /* Dark Mode — macOS Dark / Linear Multi-Surface Hierarchy */
+  --bg-primary: #0E0F13;
+  --bg-card: #16181F;
+  --bg-secondary: #1F222B;
+  --bg-elevated: #252834;
+
+  --text-primary: #F5F5F7;
+  --text-secondary: #9898A2;
+  --text-tertiary: #6C6D77;
+
+  --accent-primary: #2997FF;
+  --accent-hover: #47A7FF;
+  --accent-soft: rgba(41, 151, 255, 0.14);
+
+  --status-success: #30D158;
+  --status-success-soft: rgba(48, 209, 88, 0.14);
+
+  --status-warning: #FF9F0A;
+  --status-warning-soft: rgba(255, 159, 10, 0.15);
+
+  --status-danger: #FF453A;
+  --status-danger-soft: rgba(255, 69, 58, 0.15);
+
+  --border-subtle: #262934;
+  --border-strong: #353947;
+
+  --shadow-card: 0 6px 24px rgba(0, 0, 0, 0.32), 0 1px 0 rgba(255, 255, 255, 0.03) inset;
+  --shadow-elevated: 0 20px 48px rgba(0, 0, 0, 0.52), 0 1px 0 rgba(255, 255, 255, 0.05) inset;
+
+  /* Chart Semantic Tokens */
+  --chart-grid: #232631;
+  --chart-axis: #7E808C;
+  --chart-tooltip-bg: #1D2029;
+  --chart-tooltip-border: #323645;
+  --chart-ring-track: #242733;
+
+  /* Heatmap levels */
+  --heatmap-0: #1E2029;
+  --heatmap-1: #16395E;
+  --heatmap-2: #1B5694;
+  --heatmap-3: #2276CC;
+  --heatmap-4: #389BFF;
+}
+
+@layer base {
+  * {
+    border-color: var(--border-subtle);
+  }
+
+  html {
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    transition: background-color 220ms cubic-bezier(0.22, 1, 0.36, 1),
+      color 220ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+}
+
+.font-editorial {
+  font-family: 'Newsreader', 'New York', Georgia, serif;
+}
+
+/* Subtle custom scrollbars */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 9999px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
